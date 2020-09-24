@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed = 5.0f;
     [SerializeField] private float _jumpHeight;
     [SerializeField] private float _gravity = 1.0f;
+    [SerializeField] private GameObject _playerModel;
 
     private Vector3 _direction;
     private CharacterController _controller;
@@ -62,9 +63,9 @@ public class Player : MonoBehaviour
             _anim.SetFloat("Speed", Mathf.Abs(horizontalMovement));
 
             if (horizontalMovement > 0)
-                transform.eulerAngles = new Vector3(0, 0, 0);
+                _playerModel.transform.eulerAngles = new Vector3(0, 0, 0);
             else if (horizontalMovement < 0)
-                transform.eulerAngles = new Vector3(0, 180, 0);
+                _playerModel.transform.eulerAngles = new Vector3(0, 180, 0);
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
